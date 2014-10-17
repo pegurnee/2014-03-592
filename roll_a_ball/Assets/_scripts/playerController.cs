@@ -14,10 +14,10 @@ public class playerController : MonoBehaviour
 
 		void FixedUpdate ()
 		{
-				//these are the requirements required to jump
-				//if the space key is pressed, while the player object is on the ground, allow jump
-				if (Input.GetKeyDown ("space") && (this.transform.position.y <= this.groundHeight)) {
-						this.Jump ();
+				if (Input.GetKeyDown ("space") 
+						&& (this.transform.position.y <= this.groundHeight)
+		    ) {
+						this.rigidbody.AddForce (Vector3.up * this.jumpSpeed);
 				} else {
 						float moveHorizontal = Input.GetAxis ("Horizontal");
 						float moveVertical = Input.GetAxis ("Vertical");
@@ -26,12 +26,5 @@ public class playerController : MonoBehaviour
 		
 						this.rigidbody.AddForce (movement * this.speed * Time.deltaTime);
 				}
-		}
-
-		//adds a force to the y value equal to the jump speed
-		void Jump ()
-		{
-				this.rigidbody.AddForce (Vector3.up * this.jumpSpeed);
-
 		}
 }
