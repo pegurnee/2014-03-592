@@ -44,8 +44,9 @@ public class BallAudio : MonoBehaviour {
 			fadeOut = false;
 
 
-		curSpeed = rigidbody.velocity.magnitude;
+		curSpeed = this.rigidbody.velocity.magnitude;// - collision.rigidbody.velocity).magnitude;
 
+		//Debug.Log(curSpeed);
 		//if we've had a strong enough impact
 		if (Mathf.Abs(curSpeed - prevSpeed) > minCollisionSpeed){
 			hitAudio.volume = Mathf.Lerp(rollingAudio.volume, prevSpeed/normFactor, Time.deltaTime * transitionRate);

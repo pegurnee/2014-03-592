@@ -3,43 +3,27 @@ using System.Collections;
 
 public class WheelControllerScript : MonoBehaviour
 {
-		public GameObject theWheel;
-		private bool isSpinning = true;
-		private int speed;
+	public GameObject theBall;
 
-		// Use this for initialization
-		void Start ()
-		{
-				this.isSpinning = false;
-				this.speed = 0;
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-				if (this.isSpinning) {
-						this.transform.Rotate (new Vector3 (0.0f, 0.0f, 1) * this.speed * Time.deltaTime);
-						this.speed = this.speed - 1;
-						if (this.speed == 0) {
-								this.isSpinning = false;
-						}
-				}
-				if (!this.isSpinning) {
-						if (Input.GetKeyDown ("space")) {
-								this.isSpinning = true;
-								this.speed = 1200;
-						}
-				}
-		}
+	private float speed;
+	private BallControllerScripts ballScript;
 
-		void FixedUpdate ()
-		{
+	// Use this for initialization
+	void Start ()
+	{
+		this.speed = 100;
+		this.ballScript = theBall.GetComponent<BallControllerScripts> ();
+	}
 
-		}
+	void FixedUpdate ()
+	{	
+		this.transform.eulerAngles += new Vector3 (0.0f, 0.0f, .002f * this.speed);
 
-		void StartSpinning (float axis)
-		{
-				this.isSpinning = true;
-				this.speed = 1200;
-		}
+		if (ballScript.isStopped () == true)
+			this.speed -= .05f;
+		if (this.speed <= 0.0f)
+			this.speed = 0.0f;
+
+	}
+
 }
