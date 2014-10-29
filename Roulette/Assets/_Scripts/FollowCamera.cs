@@ -1,5 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
+/*
+ * Cade Sperlich
+ * Eddie Gurnee
+ */
 
 public class FollowCamera : MonoBehaviour
 {
