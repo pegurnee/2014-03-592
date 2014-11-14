@@ -1,0 +1,23 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PlayerController : MonoBehaviour
+{
+	private float speed;
+	private const float maxspeed = 500;
+	
+	void Start ()
+	{
+		this.speed = PlayerController.maxspeed;
+	}
+	
+	void FixedUpdate ()
+	{
+		float moveHorizontal = Input.GetAxis ("Horizontal");
+		float moveVertical = Input.GetAxis ("Vertical");
+		
+		Vector3 movement = new Vector3 (moveHorizontal, 0.0f, moveVertical);
+		
+		this.rigidbody.AddForce (movement * this.speed * Time.deltaTime);
+	}
+}
