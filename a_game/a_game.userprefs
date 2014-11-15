@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_scripts\BulletController.cs">
+    <Files>
+      <File FileName="Assets\_scripts\SpawnerController.cs" Line="41" Column="100" />
+      <File FileName="Assets\_scripts\EnemyController.cs" Line="56" Column="30" />
+      <File FileName="Assets\_scripts\PlayerController.cs" Line="56" Column="4" />
+      <File FileName="Assets\_scripts\BulletController.cs" Line="12" Column="17" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
