@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/_scripts/playerController.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../a_game/Assets/_scripts/SpawnerController.cs">
     <Files>
-      <File FileName="Assets/_scripts/playerController.cs" Line="8" Column="19" />
-      <File FileName="Assets/_scripts/rotator.cs" Line="1" Column="1" />
+      <File FileName="../a_game/Assets/_scripts/SpawnerController.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
