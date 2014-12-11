@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\_scripts\GameController.cs" />
-     <Compile Include="Assets\_scripts\GridController.cs" />
      <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
      <Compile Include="Assets\_scripts\enemy\SpawnerController.cs" />
      <Compile Include="Assets\_scripts\generation\DungeonGenerator.cs" />
