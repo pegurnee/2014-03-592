@@ -10,7 +10,7 @@ public class BulletController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		this.transform.parent = GameObject.FindGameObjectWithTag ("DynamicObjects").transform;
 	}
 	
 	// Update is called once per frame
