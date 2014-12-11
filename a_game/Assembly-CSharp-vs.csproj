@@ -46,12 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_scripts\BulletController.cs" />
-     <Compile Include="Assets\_scripts\EnemyController.cs" />
      <Compile Include="Assets\_scripts\GameController.cs" />
      <Compile Include="Assets\_scripts\GridController.cs" />
-     <Compile Include="Assets\_scripts\PlayerController.cs" />
-     <Compile Include="Assets\_scripts\SpawnerController.cs" />
+     <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
+     <Compile Include="Assets\_scripts\enemy\SpawnerController.cs" />
+     <Compile Include="Assets\_scripts\generation\DungeonGenerator.cs" />
+     <Compile Include="Assets\_scripts\hero\BulletController.cs" />
+     <Compile Include="Assets\_scripts\hero\PlayerController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
