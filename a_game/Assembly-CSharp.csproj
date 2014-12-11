@@ -46,10 +46,12 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\FloorScript.cs" />
      <Compile Include="Assets\_scripts\GameController.cs" />
      <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
      <Compile Include="Assets\_scripts\enemy\SpawnerController.cs" />
      <Compile Include="Assets\_scripts\generation\DungeonGenerator.cs" />
+     <Compile Include="Assets\_scripts\generation\NewBehaviourScript.cs" />
      <Compile Include="Assets\_scripts\hero\BulletController.cs" />
      <Compile Include="Assets\_scripts\hero\PlayerController.cs" />
   </ItemGroup>
