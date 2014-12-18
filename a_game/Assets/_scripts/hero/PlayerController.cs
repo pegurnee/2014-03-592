@@ -5,19 +5,29 @@ public class PlayerController : MonoBehaviour
 {
 		private int speed = 5;
 		public GameObject prefab;
+		public GameController gc;
 		int direction;
 		bool fired;
 		bool[] wallsInDirection = new bool[4];
 		private float delayBetweenFirings = 1;
 		private float counterOfTimePassed;
 		private float health;
+		private bool canEnterNewRoom;
+		private float tillNewRoom;
+		private float newRoomDelay = 3;
+		private AudioSource stairs;
+		private AudioSource shoot;
 
 		// Use this for initialization
 		void Start ()
 		{
+				this.stairs = GetComponents<AudioSource> () [0];
+				this.shoot = GetComponents<AudioSource> () [1];
+
 				this.counterOfTimePassed = 0;
 				this.health = 100;
-				healthBarLength = Screen.width * 1 / 2;  
+				this.canEnterNewRoom = true;
+				healthBarLength = Screen.width * 1 / 2;
 		}
 	
 		// Update is called once per frame
@@ -58,6 +68,7 @@ public class PlayerController : MonoBehaviour
 						clone = Instantiate (prefab, this.transform.position, Quaternion.identity) as GameObject;
 						clone.GetComponent<BulletController> ().setDirection (direction);
 						this.fired = true;
+						this.shoot.Play ();
 				}
 		}
 
@@ -71,6 +82,14 @@ public class PlayerController : MonoBehaviour
 								this.counterOfTimePassed = 0;
 						} 
 				}
+				if (!this.canEnterNewRoom) {
+						this.tillNewRoom += Time.deltaTime;
+			
+						if (this.tillNewRoom > this.newRoomDelay) {
+								this.canEnterNewRoom = true;
+								this.tillNewRoom = 0;
+						} 
+				}
 		}
 
 		public int getDirection ()
@@ -82,7 +101,11 @@ public class PlayerController : MonoBehaviour
 		{
 				switch (other.gameObject.tag) {
 				case "Door":
-						GameController.createRoom (direction);
+						if (this.canEnterNewRoom) {
+								this.canEnterNewRoom = false;
+								this.gc.createRoom (direction);
+								this.stairs.Play ();
+						}
 						break;
 				case "Wall":
 						this.wallsInDirection [this.direction] = true;
