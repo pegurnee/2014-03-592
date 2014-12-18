@@ -14,7 +14,7 @@ public class SpawnerController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				this.health = 1000;
+				this.health = 10;
 		}
 	
 		// Update is called once per frame
@@ -53,7 +53,7 @@ public class SpawnerController : MonoBehaviour
 		{
 				if (other.gameObject.tag.Equals ("Bullet")) {
 						health--;
-						this.gameObject.renderer.material.color = new Color ((this.gameObject.renderer.material.color.r + 0.001f),
+						this.gameObject.renderer.material.color = new Color ((this.gameObject.renderer.material.color.r + 0.1f),
 			                                                     this.gameObject.renderer.material.color.g,
 			                                                     this.gameObject.renderer.material.color.b);
 				}

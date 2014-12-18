@@ -69,8 +69,10 @@ public class EnemyController : MonoBehaviour
 		void OnTriggerEnter (Collider other)
 		{
 				if (other.gameObject.tag.Equals ("Bullet") || other.gameObject.tag.Equals ("Wall")) {
-						this.spawner.GetComponent<SpawnerController> ().spawnDied ();
 						Destroy (this.gameObject);
-				} 
+						if (this.spawner) {
+								this.spawner.GetComponent<SpawnerController> ().spawnDied ();
+						} 
+				}
 		}
 }
