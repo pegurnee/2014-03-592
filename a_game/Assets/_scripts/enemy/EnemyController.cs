@@ -14,6 +14,7 @@ public class EnemyController : MonoBehaviour
 		private float speedLimitLowerBound = 0.5f;
 		private float speedLimitUpperBound = 2.0f;
 		private float counterOfTimePassed;
+		private bool hitWall;
 
 		// Use this for initialization
 		void Start ()
@@ -29,10 +30,12 @@ public class EnemyController : MonoBehaviour
 
 		void FixedUpdate ()
 		{
-				this.counterOfTimePassed += Time.deltaTime;
-				this.transform.Translate (this.movement * Time.deltaTime * this.speed, Space.World);
-				if (this.counterOfTimePassed > this.limitForHowLongToMove) {
-						this.MoveInRandomDirectionForRandomAmountOfTime ();
+				if (!this.hitWall) {
+						this.counterOfTimePassed += Time.deltaTime;
+						this.transform.Translate (this.movement * Time.deltaTime * this.speed, Space.World);
+						if (this.counterOfTimePassed > this.limitForHowLongToMove) {
+								this.MoveInRandomDirectionForRandomAmountOfTime ();
+						}
 				}
 		}
 
@@ -68,8 +71,13 @@ public class EnemyController : MonoBehaviour
 
 		void OnTriggerEnter (Collider other)
 		{
-				if (other.gameObject.tag.Equals ("Bullet") || other.gameObject.tag.Equals ("Wall")) {
+				if (other.gameObject.tag.Equals ("Bullet")) {
 						Destroy (this.gameObject);
+						if (this.spawner) {
+								this.spawner.GetComponent<SpawnerController> ().spawnDied ();
+						} 
+				} else if (other.gameObject.tag.Equals ("Wall")) {
+						this.hitWall = true;
 						if (this.spawner) {
 								this.spawner.GetComponent<SpawnerController> ().spawnDied ();
 						} 

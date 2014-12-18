@@ -9,21 +9,17 @@ public class PlayerController : MonoBehaviour
 		bool fired;
 		private float delayBetweenFirings = 1;
 		private float counterOfTimePassed;
-		private Vector3 previousPosition;
 		bool[] wallsInDirection = new bool[4];
 
 		// Use this for initialization
 		void Start ()
 		{
-				this.previousPosition = this.transform.position;
 				this.counterOfTimePassed = 0;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-				this.previousPosition = this.transform.position;
-
 				if (Input.GetKey ("up") 
 						|| Input.GetKey ("right") 
 						|| Input.GetKey ("down") 
@@ -80,7 +76,9 @@ public class PlayerController : MonoBehaviour
 
 		void OnTriggerEnter (Collider other)
 		{
-				if (other.gameObject.tag.Equals ("Wall")) {
+				if (other.gameObject.tag.Equals ("Door")) {
+
+				} else if (other.gameObject.tag.Equals ("Wall")) {
 						this.wallsInDirection [this.direction] = true;
 				}
 		}
