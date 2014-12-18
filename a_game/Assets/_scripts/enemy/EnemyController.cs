@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				this.transform.parent = GameObject.FindGameObjectWithTag ("DynamicObjects").transform;
 		}
 	
 		// Update is called once per frame
@@ -41,6 +40,7 @@ public class EnemyController : MonoBehaviour
 
 		public void setSpawner (GameObject spawner)
 		{
+				this.transform.parent = spawner.transform;
 				this.spawner = spawner;
 		}
 

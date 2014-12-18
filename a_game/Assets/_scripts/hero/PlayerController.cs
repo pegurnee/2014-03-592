@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 		void Update ()
 		{
 				AdjustCurrentHealth (0);
+				if (this.curHealth <= 0) {
+					
+				}
 				if (Input.GetKey ("up") 
 						|| Input.GetKey ("right") 
 						|| Input.GetKey ("down") 
@@ -119,8 +122,8 @@ public class PlayerController : MonoBehaviour
 						this.curHealth -= 3;
 						break;
 				case "Missile":
-						this.health -= 5;
-						this.curHealth -= 5;
+						this.health -= 10;
+						this.curHealth -= 10;
 						break;
 				}
 		}

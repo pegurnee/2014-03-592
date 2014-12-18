@@ -6,7 +6,7 @@ public class BossController : MonoBehaviour
 
 		public GameObject player;
 		public GameObject missile;
-		int moveSpeed = 3;
+		int moveSpeed = 2;
 		int maxDist = 10;
 		int minDist = 4;
 		int health;
@@ -19,7 +19,7 @@ public class BossController : MonoBehaviour
 		void Start ()
 		{
 				this.player = GameObject.FindGameObjectWithTag ("Player");
-				this.health = 5;
+				this.health = 20;
 				this.canShoot = false;
 		}
 	
@@ -32,9 +32,9 @@ public class BossController : MonoBehaviour
 			
 								transform.position += transform.forward * moveSpeed * Time.deltaTime;
 
-								if (Vector3.Distance (transform.position, player.transform.position) <= minDist) {
+								if (Vector3.Distance (transform.position, player.transform.position) <= maxDist) {
 										//Here Call any function U want Like Shoot at here or something
-										this.shoot ();
+										this.shoot (player.transform.position);
 										this.gameObject.renderer.material.color = Color.black;
 								} 
 			
@@ -64,14 +64,13 @@ public class BossController : MonoBehaviour
 						if (this.health <= 0) {
 								Destroy (this.gameObject);
 						}
-				} else if (other.gameObject.tag.Equals ("Wall")) {
-						Destroy (this.gameObject);
 				} 
 		}
 
-		void shoot ()
+		void shoot (Vector3 fireLocation)
 		{
-		Debug.Log ("boom!");
+				GameObject clone = (GameObject)Instantiate (missile);
+				clone.GetComponent<MissileController> ().setMovement (fireLocation);
 				this.canShoot = false;
 		}
 }

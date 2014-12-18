@@ -46,13 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\_scripts\admin\BossRoomCameraController.cs" />
      <Compile Include="Assets\_scripts\admin\GameController.cs" />
-     <Compile Include="Assets\_scripts\admin\TitleCameraController.cs" />
      <Compile Include="Assets\_scripts\admin\TitleController.cs" />
      <Compile Include="Assets\_scripts\enemy\BossController.cs" />
      <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
      <Compile Include="Assets\_scripts\enemy\HunterController.cs" />
+     <Compile Include="Assets\_scripts\enemy\MissileController.cs" />
      <Compile Include="Assets\_scripts\enemy\SpawnerController.cs" />
+     <Compile Include="Assets\_scripts\generation\BossRoomScript.cs" />
      <Compile Include="Assets\_scripts\generation\DoorScript.cs" />
      <Compile Include="Assets\_scripts\generation\DungeonGenerator.cs" />
      <Compile Include="Assets\_scripts\generation\RoomScript.cs" />

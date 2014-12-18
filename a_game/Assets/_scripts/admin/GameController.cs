@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
 		public GameObject theCamera;
 		public GameObject thePlayer;
 		public static int numrooms = 1;
-
+		private GameObject previousRoom;
 		// Use this for initialization
 		void Start ()
 		{
@@ -23,9 +23,12 @@ public class GameController : MonoBehaviour
 		public void createRoom (int direction)
 		{
 				numrooms++;
-				
 				if (numrooms < 6) {
 						GameObject room = (GameObject)Instantiate (roomPrefab);
+						if (previousRoom) {
+								Destroy (previousRoom);
+						}
+						this.previousRoom = room;
 //				room.transform.position = (new Vector3 (room.transform.position.x + (20 * numrooms), 
 //		                             room.transform.position.y, 
 //		                             room.transform.position.z));
@@ -60,7 +63,7 @@ public class GameController : MonoBehaviour
 								break;
 						}
 				} else {
-
+						Application.LoadLevel (2);
 				}
 //				switch (direction) {
 //				case 0:
