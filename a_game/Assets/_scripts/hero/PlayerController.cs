@@ -7,14 +7,16 @@ public class PlayerController : MonoBehaviour
 		public GameObject prefab;
 		int direction;
 		bool fired;
+		bool[] wallsInDirection = new bool[4];
 		private float delayBetweenFirings = 1;
 		private float counterOfTimePassed;
-		bool[] wallsInDirection = new bool[4];
+		private float health;
 
 		// Use this for initialization
 		void Start ()
 		{
 				this.counterOfTimePassed = 0;
+		this.health = 100;
 		}
 	
 		// Update is called once per frame
@@ -106,7 +108,7 @@ public class PlayerController : MonoBehaviour
 								break;
 						}
 
-						this.wallsInDirection[(this.direction + 2) % 4] = false;
+						this.wallsInDirection [(this.direction + 2) % 4] = false;
 						this.gameObject.transform.Translate (move * Time.deltaTime * this.speed);
 				}
 		}
