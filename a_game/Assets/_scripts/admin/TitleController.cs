@@ -5,6 +5,7 @@ public class TitleController : MonoBehaviour
 {
 		public GameObject titlePrefab;
 		public GameObject subtitlePrefab;
+		public GameObject room;
 		private GameObject title;
 		private GameObject subtitle;
 		private bool firstLoad;
@@ -15,6 +16,8 @@ public class TitleController : MonoBehaviour
 				this.firstLoad = true;
 				this.title = Instantiate (titlePrefab) as GameObject;
 				this.subtitle = Instantiate (subtitlePrefab) as GameObject;
+				this.room.GetComponent<RoomScript> ().makeSpawner ();
+				this.room.GetComponent<RoomScript> ().makeSpawner ();
 		}
 	
 		// Update is called once per frame

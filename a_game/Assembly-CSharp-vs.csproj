@@ -46,8 +46,9 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_scripts\GameController.cs" />
-     <Compile Include="Assets\_scripts\TitleController.cs" />
+     <Compile Include="Assets\_scripts\admin\GameController.cs" />
+     <Compile Include="Assets\_scripts\admin\TitleCameraController.cs" />
+     <Compile Include="Assets\_scripts\admin\TitleController.cs" />
      <Compile Include="Assets\_scripts\enemy\BossController.cs" />
      <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
      <Compile Include="Assets\_scripts\enemy\HunterController.cs" />

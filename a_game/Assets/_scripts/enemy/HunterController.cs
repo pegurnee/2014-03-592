@@ -20,17 +20,19 @@ public class HunterController : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				this.transform.LookAt (player.transform);
-				if (Vector3.Distance (transform.position, player.transform.position) >= minDist) {
+				if (player) {
+						this.transform.LookAt (player.transform);
+						if (Vector3.Distance (transform.position, player.transform.position) >= minDist) {
 			
-						transform.position += transform.forward * moveSpeed * Time.deltaTime;
+								transform.position += transform.forward * moveSpeed * Time.deltaTime;
 			
 			
 			
-						if (Vector3.Distance (transform.position, player.transform.position) <= maxDist) {
-								//Here Call any function U want Like Shoot at here or something
-						} 
+								if (Vector3.Distance (transform.position, player.transform.position) <= maxDist) {
+										//Here Call any function U want Like Shoot at here or something
+								} 
 			
+						}
 				}
 		}
 

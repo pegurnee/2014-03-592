@@ -135,6 +135,22 @@ public class RoomScript : MonoBehaviour
 		              											this.height / 2 - spawner.transform.localScale.x));
 		}
 
+		public void makeRandom ()
+		{
+				switch (Random.Range (1, 3)) {
+				case 1:
+						this.makeHunters ();
+						break;
+				case 2:
+						this.makeSpawner ();
+						this.makeSpawner ();
+						break;
+				case 3:
+						this.makeBossman ();
+						break;
+				}
+		}
+
 		public void makeBossman ()
 		{
 
