@@ -63,6 +63,7 @@ public class BossController : MonoBehaviour
 						this.health--;
 						if (this.health <= 0) {
 								Destroy (this.gameObject);
+								Application.LoadLevel (4);
 						}
 				} 
 		}

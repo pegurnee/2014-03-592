@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 		{
 				AdjustCurrentHealth (0);
 				if (this.curHealth <= 0) {
-					
+					Application.LoadLevel(3);
 				}
 				if (Input.GetKey ("up") 
 						|| Input.GetKey ("right") 
