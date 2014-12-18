@@ -17,11 +17,13 @@ public class PlayerController : MonoBehaviour
 		{
 				this.counterOfTimePassed = 0;
 				this.health = 100;
+				healthBarLength = Screen.width * 1 / 2;  
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
+				AdjustCurrentHealth (0);
 				if (Input.GetKey ("up") 
 						|| Input.GetKey ("right") 
 						|| Input.GetKey ("down") 
@@ -80,16 +82,22 @@ public class PlayerController : MonoBehaviour
 		{
 				switch (other.gameObject.tag) {
 				case "Door":
-						GameController.createRoom(direction);
+						GameController.createRoom (direction);
 						break;
 				case "Wall":
 						this.wallsInDirection [this.direction] = true;
 						break;
 				case "Enemy":
-						this.health -= 5;
+						this.health -= 1;
+						this.curHealth -= 1;
 						break;
 				case "Hunter":
-						this.health -= 10;
+						this.health -= 3;
+						this.curHealth -= 3;
+						break;
+				case "Missile":
+						this.health -= 5;
+						this.curHealth -= 5;
 						break;
 				}
 		}
@@ -117,8 +125,53 @@ public class PlayerController : MonoBehaviour
 								break;
 						}
 
-						this.wallsInDirection [(this.direction + 2) % 4] = false;
+						this.wallsInDirection [(this.direction + 2) % this.wallsInDirection.Length] = false;
 						this.gameObject.transform.Translate (move * Time.deltaTime * this.speed);
 				}
+		}
+
+		public int maxHealth = 100;
+		public int curHealth = 100;
+		public Texture2D bgImage;
+		public Texture2D fgImage;
+		public float healthBarLength;
+	
+		void OnGUI ()
+		{
+				// Create one Group to contain both images
+				// Adjust the first 2 coordinates to place it somewhere else on-screen
+				GUI.BeginGroup (new Rect ((Screen.width - this.healthBarLength) / 2, 0, healthBarLength, 32));
+		
+				// Draw the background image
+				GUI.Box (new Rect (0, 0, healthBarLength, 32), bgImage);
+		
+				// Create a second Group which will be clipped
+				// We want to clip the image and not scale it, which is why we need the second Group
+				GUI.BeginGroup (new Rect (0, 0, curHealth / maxHealth * healthBarLength, 32));
+		
+				// Draw the foreground image
+				GUI.Box (new Rect (0, 0, healthBarLength, 32), fgImage);
+		
+				// End both Groups
+				GUI.EndGroup ();
+		
+				GUI.EndGroup ();
+		}
+	
+		public void AdjustCurrentHealth (int adj)
+		{
+		
+				curHealth += adj;
+		
+				if (curHealth < 0)
+						curHealth = 0;
+		
+				if (curHealth > maxHealth)
+						curHealth = maxHealth;
+		
+				if (maxHealth < 1)
+						maxHealth = 1;
+		
+				healthBarLength = (Screen.width / 2) * (curHealth / (float)maxHealth);
 		}
 }

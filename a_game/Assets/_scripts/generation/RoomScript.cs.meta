@@ -7,6 +7,7 @@ MonoImporter:
   - doorPrefab: {fileID: 100000, guid: ea21f924eea344a5a8e523f1d196cb4b, type: 2}
   - spawnerPrefab: {fileID: 100000, guid: 9b5f67f862f9c418c9a122181ecf8694, type: 2}
   - hunterPrefab: {fileID: 100000, guid: 09bb6421234fb431286f8a14576f1aa6, type: 2}
+  - bossPrefab: {fileID: 100000, guid: 0b5622e2df1c14ba2aa3ac77c551d4e2, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

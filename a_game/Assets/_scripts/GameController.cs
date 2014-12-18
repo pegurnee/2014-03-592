@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public GameObject roomPrefab;
+	public static GameObject roomPrefab;
 		// Use this for initialization
 		void Start ()
 		{
@@ -18,6 +18,9 @@ public class GameController : MonoBehaviour
 
 		public static void createRoom (int direction)
 		{
+				
+		GameObject room = (GameObject)Instantiate (roomPrefab);
+
 				switch (direction) {
 				case 0:
 						

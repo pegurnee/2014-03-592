@@ -10,17 +10,23 @@ public class RoomScript : MonoBehaviour
 		public GameObject bossPrefab;
 		private GameObject[] walls = new GameObject[4];
 		private GameObject[] doors = new GameObject[4];
+		private float height;
+		private float width;
 		// Use this for initialization
 		void Start ()
 		{
 				this.createWalls ();
 				this.createDoors ();
+				this.height = this.transform.GetChild (0).localScale.z;
+				this.width = this.transform.GetChild (0).localScale.x;
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-	
+				if (Input.GetKeyDown ("space")) {
+						this.makeHunters ();
+				}
 		}
 
 		private void createDoors ()
@@ -96,12 +102,37 @@ public class RoomScript : MonoBehaviour
 
 		public void makeHunters ()
 		{
-			
+				GameObject[] hunters = new GameObject[3];
+				for (int i = 0; i < hunters.Length; i++) {
+						hunters [i] = (GameObject)Instantiate (this.hunterPrefab);
+						hunters [i].transform.parent = this.transform;
+//						hunters [i].transform.position = new Vector3 (Random.Range (hunters [i].transform.localScale.x, 
+//			                                                           this.width - hunters [i].transform.localScale.x * 2),
+//			                                          0.1f,
+//			                                             Random.Range (hunters [i].transform.localScale.z, 
+						//			              this.height - hunters [i].transform.localScale.z * 2));
+						hunters [i].transform.position = new Vector3 (Random.Range (-(this.width / 2) + hunters [i].transform.localScale.x, 
+			                                                            this.width / 2 - hunters [i].transform.localScale.x),
+			                                          0.1f,
+			                                              Random.Range (-(this.height / 2) + hunters [i].transform.localScale.x, 
+			              this.height / 2 - hunters [i].transform.localScale.x));
+				}
 		}
 
 		public void makeSpawner ()
 		{
-
+				GameObject spawner = (GameObject)Instantiate (this.spawnerPrefab);
+				spawner.transform.parent = this.transform;
+//				spawner.transform.position = new Vector3 (Random.Range (spawner.transform.localScale.x, 
+//		                                                        this.width - spawner.transform.localScale.x * 2),
+//		                                          0.1f,
+//		                                          Random.Range (spawner.transform.localScale.z, 
+//		              this.height - spawner.transform.localScale.z * 2));
+				spawner.transform.position = new Vector3 (Random.Range (-(this.width / 2) + spawner.transform.localScale.x, 
+		                                                        this.width / 2 - spawner.transform.localScale.x),
+		                                          0.1f,
+		                                          Random.Range (-(this.height / 2) + spawner.transform.localScale.x, 
+		              											this.height / 2 - spawner.transform.localScale.x));
 		}
 
 		public void makeBossman ()
