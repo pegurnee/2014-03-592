@@ -6,7 +6,7 @@ public class MissileController : MonoBehaviour
 	
 	
 		Vector3 movement;
-		private int speed = 8;
+		private int speed = 2;
 		float lifeSpan = 1.0f;
 		float timeAlive;
 

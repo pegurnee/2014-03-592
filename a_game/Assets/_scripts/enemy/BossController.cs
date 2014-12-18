@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
 		public GameObject player;
 		public GameObject missile;
 		int moveSpeed = 2;
-		int maxDist = 10;
+		int maxDist = 6;
 		int minDist = 4;
 		int health;
 		bool canShoot;
@@ -69,7 +69,7 @@ public class BossController : MonoBehaviour
 
 		void shoot (Vector3 fireLocation)
 		{
-				GameObject clone = (GameObject)Instantiate (missile);
+				GameObject clone = (GameObject)Instantiate (missile, this.transform.position, Quaternion.identity);
 				clone.GetComponent<MissileController> ().setMovement (fireLocation);
 				this.canShoot = false;
 		}
