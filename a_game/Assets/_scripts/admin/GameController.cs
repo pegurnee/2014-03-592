@@ -54,7 +54,6 @@ public class GameController : MonoBehaviour
 						case 8:
 								room.GetComponent<RoomScript> ().makeHunters ();
 								break;
-								break;
 						case 9:
 //						room.GetComponent<RoomScript> ().makeBossman ();
 								break;

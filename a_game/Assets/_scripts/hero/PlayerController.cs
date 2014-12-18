@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
 		private float newRoomDelay = 3;
 		private AudioSource stairs;
 		private AudioSource shoot;
-
 		// Use this for initialization
 		void Start ()
 		{
@@ -35,7 +34,7 @@ public class PlayerController : MonoBehaviour
 		{
 				AdjustCurrentHealth (0);
 				if (this.curHealth <= 0) {
-					Application.LoadLevel(3);
+						Application.LoadLevel (3);
 				}
 				if (Input.GetKey ("up") 
 						|| Input.GetKey ("right") 
@@ -166,7 +165,7 @@ public class PlayerController : MonoBehaviour
 		{
 				// Create one Group to contain both images
 				// Adjust the first 2 coordinates to place it somewhere else on-screen
-				GUI.BeginGroup (new Rect ((Screen.width - this.healthBarLength) / 2, 0, healthBarLength, 32));
+				GUI.BeginGroup (new Rect ((Screen.width - this.healthBarLength) / 2, 15, healthBarLength, 32));
 		
 				// Draw the background image
 				GUI.Box (new Rect (0, 0, healthBarLength, 32), bgImage);

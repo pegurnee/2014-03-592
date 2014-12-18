@@ -8,8 +8,8 @@ public class BossRoomScript : MonoBehaviour
 	public GameObject bossPrefab;
 	private GameObject[] walls = new GameObject[4];
 	private GameObject[] doors = new GameObject[4];
-	private float height;
 	private float width;
+	private float height;
 	// Use this for initialization
 	void Start ()
 	{

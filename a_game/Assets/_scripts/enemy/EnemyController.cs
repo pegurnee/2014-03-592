@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EnemyController : MonoBehaviour
 {
-
+		public GameController gc;
 		GameObject player;
 		Vector3 movement;
 		private GameObject spawner;
