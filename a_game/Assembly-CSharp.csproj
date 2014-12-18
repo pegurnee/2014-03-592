@@ -48,9 +48,11 @@
   <ItemGroup>
      <Compile Include="Assets\_scripts\GameController.cs" />
      <Compile Include="Assets\_scripts\TitleController.cs" />
+     <Compile Include="Assets\_scripts\enemy\BossController.cs" />
      <Compile Include="Assets\_scripts\enemy\EnemyController.cs" />
      <Compile Include="Assets\_scripts\enemy\HunterController.cs" />
      <Compile Include="Assets\_scripts\enemy\SpawnerController.cs" />
+     <Compile Include="Assets\_scripts\generation\DoorScript.cs" />
      <Compile Include="Assets\_scripts\generation\DungeonGenerator.cs" />
      <Compile Include="Assets\_scripts\generation\RoomScript.cs" />
      <Compile Include="Assets\_scripts\hero\BulletController.cs" />

@@ -5,6 +5,9 @@ public class RoomScript : MonoBehaviour
 {
 		public GameObject wallPrefab;
 		public GameObject doorPrefab;
+		public GameObject spawnerPrefab;
+		public GameObject hunterPrefab;
+		public GameObject bossPrefab;
 		private GameObject[] walls = new GameObject[4];
 		private GameObject[] doors = new GameObject[4];
 		// Use this for initialization
@@ -89,5 +92,46 @@ public class RoomScript : MonoBehaviour
 										new Vector2 (this.walls [i].transform.localScale.x * 2, 
 				             							this.walls [i].transform.localScale.z * 2);
 				}
+		}
+
+		public void makeHunters ()
+		{
+			
+		}
+
+		public void makeSpawner ()
+		{
+
+		}
+
+		public void makeBossman ()
+		{
+
+		}
+
+		public void removeTopDoor ()
+		{
+				this.removeDoor (0);
+		}
+
+		public void removeRightDoor ()
+		{
+				this.removeDoor (1);
+		
+		}
+
+		public void removeBottomDoor ()
+		{
+				this.removeDoor (2);
+		}
+
+		public void removeLeftDoor ()
+		{
+				this.removeDoor (3);
+		}
+
+		private void removeDoor (int door)
+		{
+				Destroy (this.doors [door]);
 		}
 }

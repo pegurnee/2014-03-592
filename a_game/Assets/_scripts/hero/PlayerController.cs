@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 		void Start ()
 		{
 				this.counterOfTimePassed = 0;
-		this.health = 100;
+				this.health = 100;
 		}
 	
 		// Update is called once per frame
@@ -78,10 +78,19 @@ public class PlayerController : MonoBehaviour
 
 		void OnTriggerEnter (Collider other)
 		{
-				if (other.gameObject.tag.Equals ("Door")) {
-
-				} else if (other.gameObject.tag.Equals ("Wall")) {
+				switch (other.gameObject.tag) {
+				case "Door":
+						GameController.createRoom(direction);
+						break;
+				case "Wall":
 						this.wallsInDirection [this.direction] = true;
+						break;
+				case "Enemy":
+						this.health -= 5;
+						break;
+				case "Hunter":
+						this.health -= 10;
+						break;
 				}
 		}
 
