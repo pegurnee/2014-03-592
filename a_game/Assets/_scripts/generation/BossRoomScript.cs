@@ -8,14 +8,10 @@ public class BossRoomScript : MonoBehaviour
 	public GameObject bossPrefab;
 	private GameObject[] walls = new GameObject[4];
 	private GameObject[] doors = new GameObject[4];
-	private float width;
-	private float height;
 	// Use this for initialization
 	void Start ()
 	{
 		this.createWalls ();
-		this.height = this.transform.GetChild (0).localScale.z;
-		this.width = this.transform.GetChild (0).localScale.x;
 	}
 	
 	// Update is called once per frame
