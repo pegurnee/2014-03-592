@@ -1,9 +1,0 @@
-fileFormatVersion: 2
-guid: a865b697defae4893b15727d9f94ee3b
-MonoImporter:
-  serializedVersion: 2
-  defaultReferences:
-  - roomPrefab: {fileID: 100000, guid: e48c60fb7585e462da2d1eded4ded96d, type: 2}
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
